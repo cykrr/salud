@@ -1,12 +1,11 @@
 import Image from "next/image";
+import RutInput from "@/components/RutInput"
 import Input from "@/components/Input"
 import Button from "@/components/Button"
 import Select from "@/components/Select"
 
 
-import { useState, useEffect } from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-
 
 export async function getData() {
   const res = await fetch('https://gist.github.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json')
@@ -16,7 +15,6 @@ export async function getData() {
 
 export default async function Signup() {
   const data = await getData()
-  const selection = useState(0)
 
   async function get_regions() {
     let options = []
@@ -26,12 +24,13 @@ export default async function Signup() {
     return options
   }
   async function get_comunas(region) {
+    let options = []
     for (let i = 0; i < data['regiones'][region].comunas.length; i++) {
-      return <option key={i} value={i}>{data['regiones'][region].comunas[i]}</option>
+      options.push(<option key={i} value={i}>{data['regiones'][region].comunas[i]}</option>)
     }
+    return options
 
   }
-
 
   return (
       <div className="flex justify-center items-center w-full h-full flex-col w-30 pt-10">
@@ -39,15 +38,26 @@ export default async function Signup() {
           <label>Registro</label>
           <div className="px-10">
             <div className="flex flex-row space-x-2.5">
-              <Input className="w-full" placeholder={"Usuario"} input_type={"text"}></Input>
-              <Input className="w-full" placeholder={"RUT"} input_type={"text"}></Input>
+              <Input className="w-full" placeholder={"Usuario"} inputType={"text"}></Input>
+              <RutInput className="w-full"></RutInput>
             </div>
             <div className="flex flex-row space-x-2.5">
-              <Select>
+              <Select className="w-full">
                 {get_regions()}
               </Select>
-              <Select>{get_comunas(0)}</Select>
+              <Select className="w-full">{get_comunas(0)}</Select>
             </div>
+            <div className="flex flex-row space-x-2.5">
+              <Input className="w-full" inputType="number" placeholder="Edad"></Input>
+              <Select className="w-full">
+                <option value="male">Masculino</option>
+                <option value="female">Femenino</option>
+                <option value="other">Otro</option>
+              </Select>
+            </div>
+            <Input placeholder="Correo" className="w-full"></Input>
+            <Input inputType="password" placeholder="Contraseña" className="w-full"></Input>
+            <Input inputType="password" placeholder="Confirmar contraseña"></Input>
 
           {/* <div className="flex flex-row space-x-2.5 my-2.5">
                 <select 
