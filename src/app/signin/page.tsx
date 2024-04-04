@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Input from "@/views/Input"
-import Button from "@/views/Button"
+import Input from "@/components/Input"
+import Button from "@/components/Button"
 
 export default function Login() {
   return (

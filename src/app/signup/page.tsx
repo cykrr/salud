@@ -1,9 +1,38 @@
 import Image from "next/image";
-import Input from "@/views/Input"
-import Button from "@/views/Button"
+import Input from "@/components/Input"
+import Button from "@/components/Button"
+import Select from "@/components/Select"
 
 
-export default function Signup() {
+import { useState, useEffect } from "react";
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+
+
+export async function getData() {
+  const res = await fetch('https://gist.github.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json')
+  const data = await res.json()
+  return data
+}
+
+export default async function Signup() {
+  const data = await getData()
+  const selection = useState(0)
+
+  async function get_regions() {
+    let options = []
+    for (let i = 0; i < data['regiones'].length; i++) {
+      options.push(<option key={i} value={i}>{data['regiones'][i].region}</option>)
+    }
+    return options
+  }
+  async function get_comunas(region) {
+    for (let i = 0; i < data['regiones'][region].comunas.length; i++) {
+      return <option key={i} value={i}>{data['regiones'][region].comunas[i]}</option>
+    }
+
+  }
+
+
   return (
       <div className="flex justify-center items-center w-full h-full flex-col w-30 pt-10">
         <div id="login" className="text-center w-full h-full flex flex-col justify-center items-center">
@@ -14,9 +43,12 @@ export default function Signup() {
               <Input className="w-full" placeholder={"RUT"} input_type={"text"}></Input>
             </div>
             <div className="flex flex-row space-x-2.5">
-              <Input className="w-full" placeholder={"Usuario"} input_type={"text"}></Input>
-              <Input className="w-full" placeholder={"RUT"} input_type={"text"}></Input>
+              <Select>
+                {get_regions()}
+              </Select>
+              <Select>{get_comunas(0)}</Select>
             </div>
+
           {/* <div className="flex flex-row space-x-2.5 my-2.5">
                 <select 
                 name="region"
