@@ -24,7 +24,10 @@ export const RutInput: React.FC<InputProp> = ({inputType, placeholder, className
     const [rutValido,setRutValido] = useState(false)
 
     return(
-        <Input className={className} onChange={(e)=>{e.target.value = formatearRUT(e.target.value)}}>
+        <Input 
+            className={className}
+            onChange={(e)=>{e.target.value = formatearRUT(e.target.value)}}
+            placeholder='RUT'>
         </Input>
     )
 }

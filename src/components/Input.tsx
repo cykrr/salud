@@ -7,7 +7,7 @@ export interface InputProp {
     className?: string
     onChange?: React.ChangeEventHandler<HTMLInputEvent>
 }
-export const Input: React.FC<InputProp> = ({inputType, placeholder, className = "", onChange}) => {
+export const Input: React.FC<InputProp> = ({inputType, placeholder, className, onChange}) => {
     return(
         <input 
         type={inputType}
