@@ -5,7 +5,8 @@ export default function Homepage() {
             <p>Prueba</p>
             <Link href="/signin">Iniciar sesión</Link><br/>
             <Link href="/signup">Registrarse</Link><br/>
-            <Link href="/terms_conditions">Términos y Condiciones</Link>
+            <Link href="/terms_conditions">Términos y Condiciones</Link><br/>
+            <Link href="/menu">Menú</Link>
         </div>
     )
 }
