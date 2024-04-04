@@ -6,6 +6,7 @@ import Select from "@/components/Select"
 
 
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import { SelectRegionComuna } from "@/components/SelectRegionComuna";
 
 export async function getData() {
   const res = await fetch('https://gist.github.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json')
@@ -16,7 +17,7 @@ export async function getData() {
 export default async function Signup() {
   const data = await getData()
 
-  async function get_regions() {
+  /*async function get_regions() {
     let options = []
     for (let i = 0; i < data['regiones'].length; i++) {
       options.push(<option key={i} value={i}>{data['regiones'][i].region}</option>)
@@ -30,7 +31,7 @@ export default async function Signup() {
     }
     return options
 
-  }
+  }*/
 
   return (
       <div className="flex w-full h-full justify-center align-center">
@@ -43,10 +44,7 @@ export default async function Signup() {
                 <RutInput className="w-full"></RutInput>
               </div>
               <div className="flex flex-row space-x-2.5">
-                <Select className="w-full">
-                  {get_regions()}
-                </Select>
-                <Select className="w-full">{get_comunas(0)}</Select>
+                <SelectRegionComuna></SelectRegionComuna>
               </div>
               <div className="flex flex-row space-x-2.5">
                 <Input className="w-full" inputType="number" placeholder="Edad"></Input>
