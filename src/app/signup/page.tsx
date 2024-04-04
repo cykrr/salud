@@ -33,7 +33,7 @@ export default async function Signup() {
   }
 
   return (
-      <div className="flex justify-center items-center w-full h-full flex-col w-30 pt-10">
+      <div className="flex justify-center items-center w-full h-full flex-col w-30 pt-10 lg:px-96">
         <div id="login" className="text-center w-full h-full flex flex-col justify-center items-center">
           <label>Registro</label>
           <div className="px-10">
@@ -57,7 +57,7 @@ export default async function Signup() {
             </div>
             <Input placeholder="Correo" className="w-full"></Input>
             <Input inputType="password" placeholder="Contraseña" className="w-full"></Input>
-            <Input inputType="password" placeholder="Confirmar contraseña"></Input>
+            <Input inputType="password" placeholder="Confirmar contraseña" className="w-full"></Input>
 
           {/* <div className="flex flex-row space-x-2.5 my-2.5">
                 <select 
