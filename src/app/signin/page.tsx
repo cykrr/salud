@@ -9,8 +9,8 @@ export default function Login() {
           <label>Inicia Sesión</label>
           <div className="h-16"></div>
           <div className="px-10">
-              <Input input_type={"text"} placeholder={"Usuario"}/>
-              <Input input_type={"password"} placeholder={"Contraseña"}/>
+              <Input inputType={"text"} placeholder={"Usuario"}/>
+              <Input inputType={"password"} placeholder={"Contraseña"}/>
 
               <div className="h-16"></div>
               <div className="flex justify-center">

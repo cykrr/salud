@@ -5,8 +5,7 @@ import Button from "@/components/Button"
 import Select from "@/components/Select"
 
 
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import { SelectRegionComuna } from "@/components/SelectRegionComuna";
+import {SelectRegionComuna} from "@/components/SelectRegionComuna";
 
 export async function getData() {
   const res = await fetch('https://gist.github.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json')
@@ -43,8 +42,9 @@ export default async function Signup() {
                 <Input className="w-full" placeholder={"Usuario"} inputType={"text"}></Input>
                 <RutInput className="w-full"></RutInput>
               </div>
-              <div className="flex flex-row space-x-2.5">
-                <SelectRegionComuna></SelectRegionComuna>
+              <div className="flex flex-row">
+                <SelectRegionComuna>
+                </SelectRegionComuna>
               </div>
               <div className="flex flex-row space-x-2.5">
                 <Input className="w-full" inputType="number" placeholder="Edad"></Input>
