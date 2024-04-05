@@ -1,7 +1,7 @@
 import NavBar from "@/components/NavBar"
 import CloseButton from "@/components/CloseButton"
 import Select from "@/components/Select"
-import Input from "@/components/Input"
+import InputUnit from "@/components/InputUnit"
 import Button from "@/components/Button"
 
 export default function Page() {
@@ -14,7 +14,7 @@ export default function Page() {
                 </div>
                 <div className="flex flex-col gap-2">
                     <Select></Select>
-                    <Input placeholder="Tamaño porción"></Input>
+                    <InputUnit className="" inputType="number" placeholder="Tamaño porción" unit="g/mL."/>
                 </div>
                 <Button>Agregar</Button>
                 <div className="flex flex-col gap-1 text-center">
