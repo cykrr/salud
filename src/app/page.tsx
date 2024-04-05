@@ -7,7 +7,8 @@ export default function Homepage() {
             <Link href="/signup">Registrarse</Link><br/>
             <Link href="/terms_conditions">Términos y Condiciones</Link><br/>
             <Link href="/menu">Menú</Link><br/>
-            <Link href="/add_food">Agregar alimento</Link>
+            <Link href="/add_food">Agregar alimento</Link><br/>
+            <Link href="/add_exercise">Agregar ejercicio</Link>
         </div>
     )
 }
